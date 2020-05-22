@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/hieu.css"/>
-    <link rel="stylesheet" href="ti/css"/>
+    <link rel="stylesheet" href="css/ti.css"/>
 </head>
 <body>
     <!--Hieu section-->
@@ -15,19 +15,63 @@
     
     <section></section>
     <h1></h1>
-    <input id="tweetArea" value =140 type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <button id="tweetButton"type="button" class="btn btn-info">Tweet</button>
+    <input id="input" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <input id="usernameInput" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <button id="tweetButton" type="button" class="btn btn-info">Tweet</button>
     <button id="retweet" type="button" class="btn btn-info">Retweet</button>
     <div id="remainingArea"></div>
-    <div id="tweetBox"></div>
+    <div id="tweetBox">
+
+    </div>
     <!--TweetBox-->
-    <div class="media">
-        <img src="..." class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <div class="border rounded border-info m-5 ">
+
+      <div class="media">
+          <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
+          <div class="media-body m-3">
+            <h5 class="mt-0">@TheRealDonaldTrump</h5>
+            Our brother Kim Jong Un has agreed to join for a nuclear peace deal conference that would allow North Korea to compete Basketball with America
+          </div>
+              
+              
         </div>
+        <div class="">
+          
+            <div class=" ml-5 row spaceB mb-5">
+          <button type="button" class="btn" data-toggle="button" aria-pressed="false">
+              Like
+              </button>
+          <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
+          <button type="button" class="btn " onclick="retweet()">Retweet</button>
+          <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
+          </div>
       </div>
+  </div>
+
+  <div class="border rounded border-info m-5 ">
+
+    <div class="media">
+        <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
+        <div class="media-body m-3">
+          <h5 class="mt-0">@TheRealDonaldTrump</h5>
+         Our great brother Xi has agreed to watch Winnie the Pooh with me at Friday night. 
+        </div>
+            
+            
+      </div>
+      <div class="">
+        
+          <div class=" ml-5 row spaceB mb-5">
+        <button type="button" class="btn" data-toggle="button" aria-pressed="false">
+            Like
+            </button>
+        <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
+        <button type="button" class="btn " onclick="retweet()">Retweet</button>
+        <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
+        </div>
+    </div>
+</div>
+  <div id="commentBox"></div>`
       <!-- comment-->
       <i class="fa fa-comment"></i>
       <!-- retweet-->

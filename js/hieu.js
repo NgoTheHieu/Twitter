@@ -1,4 +1,5 @@
-let tweetArea = document.getElementById("tweetArea")
+
+let tweetArea = document.getElementById("input710")
 let MAX_LETTER = 140
 let remainingLength;
 let tweetList = [];
@@ -9,33 +10,57 @@ let thisIsARetweet = "";
 let tweetHashtag = []
 let tweetUsername = []
 let tweetJoin = tweetUsername.join(" ")
+let countClick = 0;
+let maxLetter = 140
+const countLetter = () =>{
+    console.log("limit char: ")
+    
+    //1. get the length of sentence you typed in textarea
+    let lengthSentence = tweetArea.value.length
+    console.log("length is: ", lengthSentence)
+    //2. maxLetter - length
+    let remain = maxLetter - lengthSentence
+    //3. show the remain number of char
+    if(remain <0){
+        document.getElementById("remain").innerHTML = `${remain} left`
+        document.getElementById("remain").style.color = 'red'
+        // disalowText == true
+    }
+    else{
+        document.getElementById("remain").innerHTML = `${remain} left`
+        document.getElementById("remain").style.color = 'black'
+    }
+}
+const toggle = (i) =>{
+
+    tweetList[i].isDone = !(tweetList[i].isDone)
+  
+    if(tweetList[i].isDone){
+      
+        document.getElementById(`likeOrNot${i}`).innerHTML = `<i class="fa fa-heart"></i>`
+        document.getElementById(`likeOrNot${i}`).style.color = `red`
+        
+    }
+    else{
+  
+        document.getElementById(`likeOrNot${i}`).innerHTML = `<i class="fa fa-heart"></i>`
+        document.getElementById(`likeOrNot${i}`).style.color = `black`
+        
+    }
+  }
 const userName = () => {
-    username = document.getElementById("usernameBox").value
+    username = document.getElementById("usernameInput").value
     resetText();
     return username;
 }
-const countLetter = () => {
-    // 1. get the length of sentence you type into textarea 
-  let lengthOfSentence = tweetArea.value.length;
 
-  // 2. MAX_LETTER - the length
-  let remain = MAX_LETTER - lengthOfSentence;
-  // 3. show the remain number of char
-  if (remain < 0) {
-    document.getElementById("remain").innerHTML = `${remain} left`;
-    document.getElementById("remain").style.color = "red";
-  } else {
-    document.getElementById("remain").innerHTML = `${remain} left`;
-    document.getElementById("remain").style.color = "black";
-  }
-}
 const pressTweet = () =>{
     console.log(num)
     // Press tweet and the tweet will pop up in the box
     let tweet = {
         //userName: document.getElementById("usernameInput").value,
         id: num,
-        contents: document.getElementById("input").value,
+        contents: document.getElementById("input710").value,
         isRetweet: false,
         parents: null,
         hashtag: [],
@@ -77,13 +102,14 @@ const pressTweet = () =>{
 const updateList = (item) => {
     
     let html ="";
+    
     for(i = 0; i< item.length; i++){
-        html += `<div class="border rounded border-info m-5 ">
+        html += `<div class="border rounded border-info ">
 
         <div class="media">
             <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
             <div class="media-body m-3">
-              <h5 class="mt-0">@${username}</h5>
+              <h5 class="mt-0 mr-5">@${username}</h5>
               <div id="isRetweet">Is this a retweet : ${item[i].isRetweet}</div>
               <a href="#"onclick="updateHashTagList(${item[i].hashtag})" id="hashTagBox${i}">${item[i].hashtag}</a>
               <div id="usernameBox" style="color:blue;">${item[i].usernameTag}</div>${item[i].contents}
@@ -93,10 +119,8 @@ const updateList = (item) => {
           </div>
           <div class="">
             
-              <div class=" ml-5 row spaceB mb-5">
-            <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-                Like
-                </button>
+              <div class=" row spaceB m-2" style="justify-content:center;">
+            <a href='#'  id="likeOrNot${i}" onclick='toggle(${i})'><i class="fa fa-heart"></i></a> </li>
             <button type="button" class="btn btn-info " onclick="comment(${i})">Comment</button>
             <button type="button" class="btn " onclick="retweet(${tweetList[i].id})">Retweet</button>
             <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
@@ -106,10 +130,9 @@ const updateList = (item) => {
     <div id="commentBox${i}">${tweetList[i].comment}</div>
     
     <div id="retweetBox${i}"></div>`;
+    
     }
     document.getElementById('tweetBox').innerHTML = html
-    
-    
     hashTagHTML = ``;
 }
 //[ ] Comment 
@@ -123,7 +146,7 @@ const comment = (item) => {
         } else{
 
             tweetList[item].comment += `<div class="jumbotron">
-            <div class="border rounded border-info mr-5 " style="margin-left:200px;">
+            <div class="border rounded border-info mr-5 " style="margin-left:100px;">
         
                 <div class="media">
                     <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
@@ -137,16 +160,16 @@ const comment = (item) => {
                   <div class="">
                     
                       <div class=" ml-5 row spaceB mb-5">
-                    <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-                        Like
-                        </button>
+                      <a href='#'  id="likeOrNot${i}" onclick='toggle(${i})'><i class="fa fa-heart"></i></a> </li>
                     </div>
                 </div>
             </div>
-        </div>`
+        </div>`;
+        
+    document.getElementById(`commentBox${i}`).innerHTML = tweetList[i].comment
     }
-    document.getElementById(`commentBox${i}`).innerHTML = tweetList[item].comment
-    updateList();
+    
+    updateList(tweetList);
     
     }
    
@@ -155,9 +178,8 @@ const comment = (item) => {
 }
 //[ ] Upon tweeting, the characters remaining text should reset back to 140, and the field should be cleared.
 const resetText = () =>{
-    document.getElementById("input").value = null
-    document.getElementById("usernameBox").value = null
-    console.log(tweetArea);
+    document.getElementById("input710").value = null
+    document.getElementById("usernameInput").value = null
 }
 //[ ] The application should disallow text of greater than 140 characters.
 const disallowText = () =>{
@@ -211,14 +233,13 @@ const loadPage = () =>{
         hashtag: ["#MAGA","#KimJongUn"],
         comment: ``,
       };
-      
-        num++
-        tweetList.unshift(tweet);
+      num++
+        tweetList.push(tweet);
       updateList(tweetList);
      tweet = {
             //userName: document.getElementById("usernameInput").value,
             id: num,
-            contents: "North Korea's Kim has agreed to let North Koreans compete in NBA",
+            contents: "Just won my 4th term",
             isRetweet: false,
             parents: null,
             usernameTag: ["@TheRealKimJongUn"],
@@ -226,7 +247,7 @@ const loadPage = () =>{
             comment: ``,
           };
           num++
-    tweetList.unshift(tweet);
+    tweetList.push(tweet);
         console.log(tweet);
         console.log(num)
        updateList(tweetList);
@@ -256,3 +277,6 @@ document.getElementById("retweet").addEventListener("click",retweet)
 document.getElementById("usernameButton").addEventListener("click",userName)
 //document.getElementById("deleteButton").addEventListener("click",delete)
 //tweetArea.addEventListener("input", countLetter);
+tweetArea.addEventListener("input",countLetter)
+
+

@@ -16,68 +16,15 @@
     <section></section>
     <h1></h1>
     <input id="input" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <input id="usernameInput" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <input id="usernameBox" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <button id="tweetButton" type="button" class="btn btn-info">Tweet</button>
-    <button id="retweet" type="button" class="btn btn-info">Retweet</button>
+    <button id="usernameButton" type="button" class="btn btn-info" onclick="userName()">username</button>
     <div id="remainingArea"></div>
     <div id="tweetBox">
 
     </div>
     <!--TweetBox-->
-    <div class="border rounded border-info m-5 ">
-
-      <div class="media">
-          <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
-          <div class="media-body m-3">
-            <h5 class="mt-0">@TheRealDonaldTrump</h5>
-            Our brother Kim Jong Un has agreed to join for a nuclear peace deal conference that would allow North Korea to compete Basketball with America
-          </div>
-              
-              
-        </div>
-        <div class="">
-          
-            <div class=" ml-5 row spaceB mb-5">
-          <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-              Like
-              </button>
-          <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
-          <button type="button" class="btn " onclick="retweet()">Retweet</button>
-          <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
-          </div>
-      </div>
-  </div>
-
-  <div class="border rounded border-info m-5 ">
-
-    <div class="media">
-        <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
-        <div class="media-body m-3">
-          <h5 class="mt-0">@TheRealDonaldTrump</h5>
-         Our great brother Xi has agreed to watch Winnie the Pooh with me at Friday night. 
-        </div>
-            
-            
-      </div>
-      <div class="">
-        
-          <div class=" ml-5 row spaceB mb-5">
-        <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-            Like
-            </button>
-        <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
-        <button type="button" class="btn " onclick="retweet()">Retweet</button>
-        <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
-        </div>
-    </div>
-</div>
-  <div id="commentBox"></div>`
-      <!-- comment-->
-      <i class="fa fa-comment"></i>
-      <!-- retweet-->
-      <i class="fa fa-retweet" aria-hidden="true" ></i>
-      <!-- heart-->
-      <i class="fa fa-heart"></i>
+    
     <!--Ti's part-->
 </body>
 <script src="js/hieu.js"></script>

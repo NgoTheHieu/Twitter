@@ -5,80 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/hieu.css"/>
-    <link rel="stylesheet" href="css/ti.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--Hieu section-->
     
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="">
+
+                    <div class="color-twitter">
+                        <i class="fa fa-twitter ml-3"></i>
+                    </div>
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-home color-twitter ml-3"><a class="ml-4 color-twitter" style="font-size: 24px;">Home</a></i>
+                        
+                    </div >
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-hashtag ml-3"><a class="ml-4">Explore</a></i>
+                        
+                    </div>
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-bell-o ml-3"><a class="ml-4">Notification</a></i>
+                        
+
+                    </div>
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-envelope-o ml-3"><a class="ml-4">Message</a></i>
+                        
+                    </div>
+                    
+                    <div class="hoverLeft">
+                        <i class="fa fa-bookmark-o ml-3"><a class="ml-4">Bookmark</a></i>
+                        
+                    </div>
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-list-alt ml-3"><a class="ml-4">Lists</a></i>
+                        
+                    </div>
+
+                    <div class="hoverLeft">
+                        <i class="fa fa-user-o ml-3"><a class="ml-4">Profile</a></i>
+                        
+                    </div>
+
+                    <div class="hoverLeft mb-2">
+                        <i class="fa fa-chevron-down ml-3"><a class="ml-4">More</a></i>
+                       
+                    </div>
+
+                    <div>
+                        <button id="tweetButton" class="tweet">Tweet</button>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <div class="middle">
+                        <p class="mt-3" style="font-weight: bold; font-size: 18px;">Home</p>
+                        <i class="fa fa-snowflake-o"></i></div>
+                    <div class="middle2">
+
+                        <input id="input710" placeholder="      What's happening">
+                        <div id="remain"></div>
+                        <div class="below-input">
+                        <div class="mb-2"><a href="#"><i class="fa fa-image ml-5 mr-3"></i></a>
+                            
+                            <a href="#"><i class="fa fa-align-left mr-3"></i></a>
+                            <a href="#"><i class="fa fa-smile-o mr-3"></i></a>
+                            <a href="#"><i class="fa fa-ellipsis-h mr-3"></i></a></div>
+                        <button onclick="pressTweet()" class="fRight">Tweet</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tweetBox" class="news">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <div class=" right-search">
+                       <input id="usernameInput" type="search"  placeholder="      Search Twitter">
+                    </div>
+                    <div class="text-right">
+                        <button id="usernameButton" type="button" class="btn btn-info" onclick="userName()">Sign-In</button>
+                    </div>
+                    <div class="hashtagg">
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
-    <section></section>
-    <h1></h1>
-    <input id="input" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <input id="usernameInput" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <button id="tweetButton" type="button" class="btn btn-info">Tweet</button>
-    <button id="retweet" type="button" class="btn btn-info">Retweet</button>
-    <div id="remainingArea"></div>
-    <div id="tweetBox">
-
-    </div>
-    <!--TweetBox-->
-    <div class="border rounded border-info m-5 ">
-
-      <div class="media">
-          <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
-          <div class="media-body m-3">
-            <h5 class="mt-0">@TheRealDonaldTrump</h5>
-            Our brother Kim Jong Un has agreed to join for a nuclear peace deal conference that would allow North Korea to compete Basketball with America
-          </div>
-              
-              
-        </div>
-        <div class="">
-          
-            <div class=" ml-5 row spaceB mb-5">
-          <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-              Like
-              </button>
-          <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
-          <button type="button" class="btn " onclick="retweet()">Retweet</button>
-          <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
-          </div>
-      </div>
-  </div>
-
-  <div class="border rounded border-info m-5 ">
-
-    <div class="media">
-        <div class="m-3"><img src="https://www.whitehouse.gov/wp-content/uploads/2017/11/President-Trump-Official-Portrait-1024x1297.jpg" width="75px" class="mr-3" alt="..."></div>
-        <div class="media-body m-3">
-          <h5 class="mt-0">@TheRealDonaldTrump</h5>
-         Our great brother Xi has agreed to watch Winnie the Pooh with me at Friday night. 
-        </div>
-            
-            
-      </div>
-      <div class="">
-        
-          <div class=" ml-5 row spaceB mb-5">
-        <button type="button" class="btn" data-toggle="button" aria-pressed="false">
-            Like
-            </button>
-        <button type="button" class="btn btn-info " onclick="comment()">Comment</button>
-        <button type="button" class="btn " onclick="retweet()">Retweet</button>
-        <button type="button" class="btn btn-info mr-5" onclick='deleteItem(${i})'>Delete</button>
-        </div>
-    </div>
-</div>
-  <div id="commentBox"></div>`
-      <!-- comment-->
-      <i class="fa fa-comment"></i>
-      <!-- retweet-->
-      <i class="fa fa-retweet" aria-hidden="true" ></i>
-      <!-- heart-->
-      <i class="fa fa-heart"></i>
-    <!--Ti's part-->
 </body>
 <script src="js/hieu.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
